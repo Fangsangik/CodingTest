@@ -20,9 +20,16 @@ ared와 read라는 서로 애너그램 관계에 있는 단어가 남게 된다.
 
 출력
 첫째 줄에 답을 출력한다.
+
+어떤 문자들이 제거 되야 하는지 찾아야 한다.
  */
 
+import java.util.HashMap;
 import java.util.Scanner;
+
+/*
+getOrDefault 메소드를 사용하여 해시맵에서 키가 존재하지 않을 때 기본값을 반환하도록 하는 방식은 매우 유용
+ */
 
 public class 애너그램만들기 {
     public static void main(String[] args) {
@@ -30,12 +37,31 @@ public class 애너그램만들기 {
 
         String str1 = sc.nextLine();
         String str2 = sc.nextLine();
-        int cnt = 0;
 
-        for (int i = 0; i < str1.length(); i++) {
-            char c = str1.charAt(i);
-
-            if ()
+        HashMap<Character, Integer> map1 = new HashMap<>();
+        HashMap<Character, Integer> map2 = new HashMap<>();
+        for (char c : str1.toCharArray()) {
+            map1.put(c, map1.getOrDefault(c, 0) + 1);
         }
+
+        for (char c : str2.toCharArray()) {
+            map2.put(c, map2.getOrDefault(c, 0) + 1);
+        }
+
+        int rst = 0;
+
+        for (char c : map1.keySet()) {
+            int cnt = map1.get(c); // 첫 번째 문자열의 현재 문자의 빈도를 가져옴
+            int cnt2 = map2.getOrDefault(c, 0); // 두번째 문자열의 헌재 빈도를 가져옴
+            rst += Math.abs(cnt - cnt2); // 두빈도의 차이를 절대값으로 반환
+        }
+
+        for (char c : map2.keySet()) {
+            if (!map1.containsKey(c)){
+                rst += map2.get(c);
+            }
+        }
+
+        System.out.println(rst);
     }
 }
