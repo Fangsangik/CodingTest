@@ -25,12 +25,12 @@ public class 단어공부2 {
         }
 
         //2번째 방법
-        for (char i = 'A'; i < 'Z'; i++) {
+        for (char i = 'A'; i < 'z'; i++) {
             int cnt1 = getAlphabetCnt(str, i);
             if (cnt1 > maxCnt) {
                 maxCnt = cnt1;
                 maxIndex = i;
-            }else if (cnt[i] == maxCnt) { //maxCnt에는 가장 많이 등장한 알파벳의 개수가 들어있음
+            }else if (cnt1 == maxCnt) { //maxCnt에는 가장 많이 등장한 알파벳의 개수가 들어있음
                 maxIndex = '?';
             }
         }
