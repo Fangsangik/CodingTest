@@ -1,4 +1,4 @@
-package stringReview;
+package string.stringReview;
 
 /*
 문제

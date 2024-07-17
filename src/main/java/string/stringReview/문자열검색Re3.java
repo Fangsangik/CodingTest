@@ -1,4 +1,4 @@
-package stringReview;
+package string.stringReview;
 
 import java.util.Scanner;
 

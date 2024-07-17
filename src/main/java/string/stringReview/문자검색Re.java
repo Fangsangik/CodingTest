@@ -1,4 +1,4 @@
-package stringReview;
+package string.stringReview;
 
 /*
 세준이는 영어로만 이루어진 어떤 문서를 검색하는
